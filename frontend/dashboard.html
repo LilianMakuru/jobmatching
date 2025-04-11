@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Job Matching</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Your Dashboard</h2>
+        
+        <div id="profile-section">
+            <h3>Complete Your Profile</h3>
+            <form id="profileForm">
+                <input type="text" id="fullName" placeholder="Full Name" required>
+                <input type="text" id="profession" placeholder="Profession" required>
+                <input type="number" id="experience" placeholder="Years of Experience" required>
+                <input type="text" id="certifications" placeholder="Certifications (comma separated)">
+                <input type="text" id="referees" placeholder="Referees (comma separated)">
+                <label>Upload Certificates:</label>
+                <input type="file" id="certificates" multiple>
+                <label>Upload CV:</label>
+                <input type="file" id="cv">
+                <button type="submit">Save Profile</button>
+            </form>
+        </div>
+
+        <div id="preview-section" style="display:none;">
+            <h3>Your Profile</h3>
+            <p><strong>Name:</strong> <span id="previewName"></span></p>
+            <p><strong>Profession:</strong> <span id="previewProfession"></span></p>
+            <p><strong>Experience:</strong> <span id="previewExperience"></span> years</p>
+            <p><strong>Certifications:</strong> <span id="previewCertifications"></span></p>
+            <p><strong>Referees:</strong> <span id="previewReferees"></span></p>
+            <p><strong>Certificates:</strong> <a id="previewCertificates" target="_blank">View</a></p>
+            <p><strong>CV:</strong> <a id="previewCV" target="_blank">View</a></p>
+            <button onclick="editProfile()">Edit Profile</button>
+        </div>
+
+        <div id="job-section" style="display:none;">
+            <h3>Job Recommendations</h3>
+            <ul id="jobList"></ul>
+        </div>
+
+        <div id="applications-section" style="display:none;">
+            <h3>Your Applications</h3>
+            <ul id="applicationList"></ul>
+        </div>
+
+        <button onclick="logout()" class="logout">Logout</button>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html> 

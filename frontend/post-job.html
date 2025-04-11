@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Post a Job</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background-color: #f4f4f4;
+    }
+    form {
+      background-color: white;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Post a Job</h2>
+  <form id="jobForm">
+    <input type="text" id="title" placeholder="Job Title" required />
+    <textarea id="description" placeholder="Job Description" required></textarea>
+    <textarea id="requirements" placeholder="Job Requirements" required></textarea>
+    <input type="text" id="location" placeholder="Location" required />
+    <button type="submit">Post Job</button>
+    <div class="message" id="message"></div>
+  </form>
+
+  <script>
+    document.getElementById("jobForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      const requirements = document.getElementById("requirements").value;
+      const location = document.getElementById("location").value;
+
+      const response = await fetch("http://localhost:5000/api/employer/post-job", {
+        method: "POST",
+        credentials: "include", // Very important to include cookies/session
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ title, description, requirements, location })
+      });
+
+      const data = await response.json();
+      const messageEl = document.getElementById("message");
+
+      if (data.success) {
+        messageEl.style.color = "green";
+        messageEl.textContent = data.message;
+        document.getElementById("jobForm").reset();
+      } else {
+        messageEl.style.color = "red";
+        messageEl.textContent = data.message || "Failed to post job.";
+      }
+    });
+  </script>
+
+</body>
+</html>
