@@ -13,7 +13,8 @@
             height: 100vh;
             background-color: #f4f4f4;
             margin: 0;
-            padding-top: 80px;
+            padding-top: 60px;
+            overflow: hidden;
         }
 
         nav {
@@ -21,14 +22,43 @@
             top: 0;
             left: 0;
             right: 0;
-            padding: 20px;
+            padding: 15px 40px;
             display: flex;
-            justify-content: space-between;
+            gap: 20px;
+            justify-content: flex-start;
             align-items: center;
         }
+        nav p {
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav span {
+            padding-top: 13px;
+        }
+        
+        .employer-login{
+            background-color: #277e39;
+            color: #f4f4f4;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .employer-register{
+            background-color: #f4f4f4;
+            color: #277e39;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid #277e39;
+        }
 
+        .logo-container {
+            margin-right: 40px;
+        }
         .logo {
-            height: 60px;
+            height: 50px;
+            width: auto;
         }
 
         .home-button {
@@ -37,57 +67,86 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
+            margin-left: auto;
         }
 
         .main-container {
             background: #277e39;
             border-radius: 10px;
             width: 70%;
-            height: 500px;
-            border: 2px solid #277e39;
+            height: 400px;
             display: flex;
-            align-items: center;
-            padding: 20px;   
+            box-sizing: border-box;  
+            box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2);
         }
 
-        .left-side{
+        form{
+            margin-top: -20px;
+        }
+
+        .form-container{
             flex: 1;
-            height: 100%;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            background: white;
+            padding: 30px 40px;
+            border-radius: 8px 0 0 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;    
+        }
+
+        .welcome-text {
+            font-size: 28px;
+            color: #277e39;
+            font-weight: 700;
+            margin-top: 0;
+        }
+        .subtext{
+            font-size: 16px;
+            color: #666;
+            font-weight: 300;
+            display: inline-block;
+            margin-top: 8px;
+        }
+
+        .image-container {
+            flex: 1;
+            border-radius: 0 8px 8px 0;
+            overflow: hidden;
         }
 
         .container {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
-            width: 50%;
-            height: 100%;
-            text-align: center;
+            width: 100%;
+            flex: 1;
+            height: auto;
+            min-height: calc(100% - 40px);
+            padding: 20px 0;
+            box-shadow: none;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-        }
-
-        .left-side img {
-            max-width: 80%;
-            height: auto;
+            justify-content: flex-start;
+            gap: 20px;
         }
 
         .container img {
+            height: 150px;
             width: 150px;
         }
+
         input {
             width: 90%;
             padding: 10px;
-            margin: 10px 0;
+            margin-bottom:  10px;
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
+        .button-container{
+            text-align: right;
+            margin: 15px 0;
+            
+        }
         button {
-            width: 50%;
+            width: 25%;
             padding: 10px;
             background-color: #277e39;
             color: white;
@@ -98,6 +157,49 @@
         button:hover {
             background-color: #277e39;
         }
+
+        .register-link {
+          text-align: center;
+          font-size: 14px;
+          color: #666;
+          margin-top: auto;
+          margin-bottom: 20px;
+          padding-bottom: 0;
+        }
+
+        .register-link a {
+          color: #277e39;
+          font-weight: 700;
+          text-decoration: none;
+          font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+          .main-container{
+            flex-direction: column;
+            min-height: auto;
+            height: 90vh;
+          }
+          .form-container{
+            padding:  30px 25px;
+          }
+          .welcome-text{
+            font-size: 24px;
+          }
+          .subtext{
+            font-size: 14px;
+          }
+          .image-container {
+            order: -1;
+            height: 300px;
+          }  
+        }
+
+        @media (max-width: 480px) {
+            .welcome-text{
+                font-size: 22px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -106,25 +208,37 @@
             <img src="assets/logo.svg" alt="" class="logo">
         </div>
         <a href="index.html" class="home-button">Home</a>
-        <p>Employers<a href="./employer_register.html"> Register</a>  <a href="./employer_register.html">log in</a></p>
+        <p style="color: #277e39;">
+            <span>Employer</span>
+            <a href="./employer_register.html" class="employer-login">log in</a>
+            <a href="./employer_register.html" class="employer-register"> Register</a>     
+        </p>
        
     </nav>
    <div>  
 </div>
    <div class="main-container">
-       <div class="left-side">
-           <img src="assets/img5.jpg" alt="">
+       <div class="form-container">
+        <div class="container">
+            <img src="assets/logo.svg" alt="">
+            <p class="welcome-text">Welcome back! <br> 
+                <span class="subtext">Please enter your details</span>
+            </p>
+            <form id="loginForm">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <div class="button-container">
+                    <button type="submit">Login</button> 
+                </div>
+             </form>
+        </div>
+        <p class="register-link">Don't have an account? <a href="register.html">Register</a></p>
+    </div>
+       <div class="image-container">
+           <img src="assets/pattern.svg" alt="">
        </div>
 
-       <div class="container">
-        <img src="assets/logo.svg" alt="">
-         <form id="loginForm">
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-         </form>
-        <p>Don't have an account? <a href="register.html">Register</a></p>
-    </div>
+      
 </div>
     <script>
         document.getElementById('loginForm').addEventListener('submit', async function(event) {
