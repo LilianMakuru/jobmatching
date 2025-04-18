@@ -136,12 +136,26 @@
             width: 90%;
             padding: 10px;
             margin-bottom:  10px;
-            border: 1px solid #ccc;
+            border: 1px solid #277e39;
             border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
+        input:focus {
+            border-color: #1a5d29;
+            outline: none;
+        }
+        input::placeholder{
+            color: #277e39;
+            font-weight: 300;
+        }
+        input:hover{
+            border-color: #1a5d29;
+        }
+
+
         .button-container{
-            text-align: right;
+            text-align: left;
             margin: 15px 0;
             
         }
@@ -212,11 +226,9 @@
             <span>Employer</span>
             <a href="./employer_register.html" class="employer-login">log in</a>
             <a href="./employer_register.html" class="employer-register"> Register</a>     
-        </p>
-       
+        </p>   
     </nav>
-   <div>  
-</div>
+
    <div class="main-container">
        <div class="form-container">
         <div class="container">
@@ -263,6 +275,5 @@
             }
         });
     </script>
-
 </body>
 </html>
